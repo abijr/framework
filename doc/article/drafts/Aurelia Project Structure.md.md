@@ -1,4 +1,4 @@
-#Introduction
+# Introduction
 There's been a ton of requests in the Aurelia community for guidance on how to structure larger projects. To help provide some clarity, I've created an example folder structure for a members-only e-commerce application. I have posted the folder and file structure to GitHub [here](https://github.com/AshleyGrant/aurelia-style-guide/tree/master/suggested-project-structure/src). The driving force with this folder structure is organizing an application by feature. 
 
 It's important to note that this project structure attempts to be agnostic of what tools you use for building, testing, and bundling your application. Those decisions should not, in general affect the structure presented here. Also, note that this guide should not, by any means, be considered "the only way" to structure your Aurelia application. If this folder structure does not work for you, or doesn't make sense for a particular application, you are free to tweak it (or even completely ignore it). This project structure uses `js` file extensions, but this does not limit this project structure to only JavaScript applications. This structure will work just as well for TypeScript.
@@ -16,19 +16,19 @@ Root Directory Structure
 
 The root directory for this application contains four directories: `img`, `lib`, `src`, and `styles`. Each of these directories is optional, save for `src`. The `img` directory contains global images such as the application logo. The `lib` directory is where libraries that are not distributed via whatever package manager we are using will be placed. These libraries are likely loaded via a simple `script` element in the `index.html` file for the application. The `src` directory contains all JavaScript (or TypeScript) source files for the application as well as any supporting files. It is likely that your build tooling will transpile or otherwise "work" with all of the files in this folder. The `styles` directory contains global styles for your application. These may be `css` files, or it may be in a format that needs to be compiled to `css`. 
 
-##`img`
+## `img`
 You are free to structure this folder as necessary for your application. This directory is *not* where dynamically retrieved images should be located. For example, your application's logo and images used in styling the application would be placed in this folder, but product images, or user avatars would not be stored here.
 
-##`lib`
+## `lib`
 When creating Aurelia applications, you are likely going to be using a package manager such as `npm` or `jspm` to handle dependencies for your application. Unfortunately, there are many resources that are not distributed via these package managers. If your application relies on a JavaScript library, CSS Framework, jQuery widget, or other item like this, `lib` is where you'll put these items. For dependencies that consist of a single file, it is fine to put them directly in the `lib` directory, but larger dependencies should be placed in their own directory within `lib`.
 
-##`styles`
+## `styles`
 Application level styles should be placed in the `styles` directory and loaded via a `link` element. This directory is just a recommendation, and it is perfectly acceptable to place application level styles in the `src` directory and load them using Aurelia's loader if you desire.
 
-##`src`
+## `src`
 The `src` directory is where your application's main source code will live. The structure of the application in this directory will be discussed in depth below.
 
-#Source Code Structure
+# Source Code Structure
 
 Let's first look at the entire directory and file structure we'll be exploring.
 
@@ -143,5 +143,5 @@ The `resources` directory is where any global resources for your applications sh
 ## `main.js`
 The `main.js` file is where your Aurelia application's startup code will go. It will likely point Aurelia to the login component as the application root. 
 
-#Conclusion
+# Conclusion
 This post serves as a starting point, both for your application as well as for discussion on these recommendations. As I've stated previously, it isn't required that you agree with and follow every recommendation in this post. What is important is that you (or your team) decide on the standards for organizing the codebase and naming files and then STICK TO THEM! Coding standards are different everywhere, but they are also important everywhere!
